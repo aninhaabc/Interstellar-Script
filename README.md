@@ -1,5 +1,3 @@
-# InterstellarLang
-
 # 🌌 **InterestelarLang** 🌠
 
 Bem-vindo ao **InterestelarLang**, uma linguagem de programação inspirada no universo, com foco em uma sintaxe única e inclusiva. Essa linguagem foi criada com o objetivo de proporcionar uma experiência diferente e criativa, combinando conceitos de espaço e tempo com a arte da programação.
