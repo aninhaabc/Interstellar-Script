@@ -1,3 +1,4 @@
+
 # 🌌 Murphy
 
 Bem-vindo à Murphy, uma linguagem de programação experimental inspirada nas curvas do espaço-tempo, na relatividade, e claro — no universo de Interestelar.  
