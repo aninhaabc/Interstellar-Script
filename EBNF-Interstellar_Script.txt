@@ -1,46 +1,46 @@
-program         = { statement } ;
+program             = { statement } ;
 
-statement       = manifest_statement
-                | adjust_statement
-                | distort_statement
-                | fallback_statement
-                | loop_horizon_statement
-                | emit_statement
-                | disintegrate_statement
-                ;
+statement           = manifest_statement
+                    | adjust_statement
+                    | distort_statement
+                    | fallback_statement
+                    | loop_horizon_statement
+                    | emit_statement
+                    | disintegrate_statement
+                    | temporal_block ;
 
-manifest_statement = "manifest" identifier "with" expression ;
+manifest_statement  = "manifest" identifier "with" expression ";" ;
 
-adjust_statement   = "adjust" identifier "by" expression ;
+adjust_statement    = "adjust" identifier "by" expression ";" ;
 
-distort_statement  = "distort" expression "beyond" expression block "end_distort" ;
+distort_statement   = "distort" expression "beyond" expression block "end_distort" ";" ;
 
-fallback_statement = "fallback" block ;
+fallback_statement  = "fallback" block "end_distort" ";" ;
 
-loop_horizon_statement = "loop_horizon" identifier "below" expression block "end_loop" ;
+loop_horizon_statement = "loop_horizon" identifier "below" expression block "end_loop" ";" ;
 
-emit_statement     = "emit" string ;
+emit_statement      = "emit" string ";" ;
 
-disintegrate_statement = "disintegrate" identifier ;
+disintegrate_statement = "disintegrate" identifier ";" ;
 
-temporal_block =  ("past"|"now"|"future") block;
+temporal_block      = ("past" | "now" | "future") block ;
 
-block            = "{" { statement } "}" ;
+block               = "{" { statement } "}" ;
 
-expression       = term { operator term } ;
+expression          = term { operator term } ;
 
-term             = identifier | number ;
+term                = identifier | number ;
 
-operator         = "+" | "-" | "*" | "/" ;
+operator            = "+" | "-" | "*" | "/" ;
 
-identifier       = letter { letter | digit | "_" } ;
+identifier          = letter { letter | digit | "_" } ;
 
-number           = digit { digit } ;
+number              = digit { digit } ;
 
-string           = "\"" { character } "\"" ;
+string              = "\"" { character } "\"" ;
 
-letter           = "a" | "b" | ... | "z" | "A" | "B" | ... | "Z" ;
+letter              = "a" | "b" | ... | "z" | "A" | "B" | ... | "Z" ;
 
-digit            = "0" | "1" | ... | "9" ;
+digit               = "0" | "1" | ... | "9" ;
 
-character        = any printable character except "\"" ;
+character           = any printable character except "\"" ;
