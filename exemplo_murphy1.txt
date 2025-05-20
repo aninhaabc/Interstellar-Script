@@ -1,7 +1,4 @@
-past {
-  manifest signal with 1;
-  emit "Mensagem enviada ao passado";
-}
+manifest signal with 1;
 
 now {
   adjust signal by 2;

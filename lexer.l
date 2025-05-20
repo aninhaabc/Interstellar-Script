@@ -35,14 +35,17 @@
 
 [a-zA-Z_][a-zA-Z0-9_]*  { yylval.id = strdup(yytext); return IDENTIFIER; }
 
-\"([^\\\"]|\\.)*\"      {
-                            yylval.str = strdup(yytext);
-                            yylval.str[strlen(yylval.str) - 1] = '\0';  
-                            memmove(yylval.str, yylval.str + 1, strlen(yylval.str)); 
-                            return STRING;
-                        }
+\"[^\"]*\" {
+    int len = strlen(yytext);
+    char *str = malloc(len - 1);
+    if (!str) exit(1);
+    strncpy(str, yytext + 1, len - 2);
+    str[len - 2] = '\0';
+    yylval.str = str;
+    return STRING;
+}
 
-[ \t\r\n]+              ;  
+[ \t\r\n]+              ;
 
 .                       { printf("Caractere desconhecido: '%s' (ASCII: %d)\n", yytext, yytext[0]); }
 

@@ -1,0 +1,12 @@
+manifest signal with 18;
+
+now {
+  adjust signal by 8;
+  emit "Ajuste realizado no presente";
+}
+
+future {
+  loop_horizon i below 10 {
+    emit "Mensagem vinda do futuro";
+  } end_loop;
+}
